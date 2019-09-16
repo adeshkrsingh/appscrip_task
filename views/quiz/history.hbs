@@ -1,0 +1,49 @@
+<style>
+    p {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .card {
+        padding: 5px;
+        margin: 15px;
+    }
+</style>
+
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Game History</a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="/quiz">
+                    Start New Game
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+{{#each data}}
+
+<div class="card  darken-1">
+    <div class="card-content ">
+            <p class="history-item">GAME {{@index}} : {{_id.updated_at}} </p>
+            <p class="history-item">Name : {{_id.user_name}}</p>
+        <hr>
+
+        {{#each answers}}
+            {{#each que_text}}
+            <p class="history-item">
+                <b>
+                    {{question_text}}
+                </b>
+            </p>
+            {{/each}}
+            <p class="history-item"> {{response}} </p>
+        {{/each}}
+    </div>
+</div>
+
+{{/each}}

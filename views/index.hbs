@@ -1,2 +1,23 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="card-panel  lighten-2">
+    <h1>
+        AppScrip
+    </h1>
+    
+    <div class="row">
+        <form class="col s12" action="/quiz" method="POST">
+            <div class="row">
+                <div class="col s4"></div>
+                <div class="input-field col s4">
+                    <input placeholder="Enter Your Name" name="user_name" id="user_name" type="text" class="validate" required>
+                </div>
+
+            </div>
+            <div class="col s4"></div>
+            <div class="row">
+                <div class="col s12">
+                <button  class="waves-effect waves-light btn" type="submit">Proceed</button>
+                </div>      
+            </div>
+        </form>
+    </div>
+</div>

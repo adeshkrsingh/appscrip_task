@@ -1,0 +1,66 @@
+<!-- Dropdown Structure -->
+<form action="/quiz/submit" method="post">
+
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Welcome {{user_name}}</a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                {{!-- <a href="badges.html">Components</a> --}}
+                <button  class="waves-effect waves-light btn" type="submit">End Quiz</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<input type="hidden" name="user_name" value="{{user_name}}">
+
+{{#each data}}
+
+<div class="row question-board">
+    <div class="col s12 md2"></div>
+    <div class="col s12 m12">
+        <div class="card  darken-1">
+            <div class="card-content ">
+
+                <span class="card-title"> {{question_text}} </span>
+                <input type="hidden" name="questions[]" value="{{_id}}">
+
+                <p>
+
+                    {{#each options}}
+                        {{#ifCond option_type}}
+                            <p>
+                                <label>
+                                    <input name="option{{../_id}}[]" value="{{option_text}}"  type="radio" />
+                                    <span> {{option_text}} </span>
+                                </label>
+                            </p>
+                        {{else}}
+                            <p>
+                                <label>
+                                    <input name="option{{../_id}}[]" value="{{option_text}}" type="checkbox" />
+                                    <span> {{option_text}} </span>
+                                </label>
+                            </p>
+                        {{/ifCond}}
+                    
+                    {{/each}}
+                </p>
+            </div>
+            {{!-- <div class="card-action">
+                <a href="#">Previous</a>
+                <a href="#">Save & Next</a>
+            </div> --}}
+        </div>
+    </div>
+</div>
+
+
+{{/each}}
+
+
+</form>
